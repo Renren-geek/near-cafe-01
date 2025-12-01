@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Near Café — Access</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary { cursor: pointer; }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col text-white pt-20 relative">
+
+  <!-- ===== 背景（全画面・Contactと同仕様） ===== -->
+  <div class="fixed inset-0 -z-10">
+    <img src="img/coffee.png" class="w-full h-full object-cover" alt="">
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- ================= HEADER（共通ブラウン仕様） ================= -->
+  <header class="fixed inset-x-0 top-0 z-[70] bg-[#3b2f2a]/90 backdrop-blur-sm border-b border-white/10">
+    <div class="mx-auto max-w-[1200px]">
+      <div class="h-20 flex items-center justify-between px-4">
+        <a href="index.html" class="h-12 px-2 flex items-center space-x-3">
+          <img src="img/logo.png" alt="Near Café ロゴ" class="h-full object-contain invert">
+          <span class="hidden sm:inline text-[26px] font-semibold text-white">Near Café</span>
+        </a>
+
+        <nav class="hidden md:block">
+          <ul class="flex items-center gap-7 text-[18px] font-bold">
+            <li><a href="index.html" class="hover:text-yellow-200">SERVICE</a></li>
+            <li><a href="about-us.html" class="hover:text-yellow-200">ABOUT US</a></li>
+            <li><a href="voice.html"    class="hover:text-yellow-200">VOICE</a></li>
+            <li><a href="news.html"     class="hover:text-yellow-200">NEWS</a></li>
+            <li><a href="access.html"   class="text-yellow-300 border-b-2 border-yellow-300">ACCESS</a></li>
+            <li><a href="contact.html"  class="hover:text-yellow-200">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Drawer（共通） ===== -->
+  <input id="nav-toggle" type="checkbox" class="peer hidden" />
+  <label for="nav-toggle"
+    class="fixed top-4 right-4 z-[100] w-12 h-12 rounded-full bg-white/20 text-white shadow-lg cursor-pointer flex items-center justify-center backdrop-blur">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </label>
+  <label for="nav-toggle" class="fixed inset-0 bg-black/40 hidden z-[80] peer-checked:block"></label>
+
+  <aside class="fixed inset-y-0 right-0 w-[320px] max-w-[88%] bg-[#3b2f2a] text-white translate-x-full
+                transition-transform duration-300 z-[90] shadow-2xl backdrop-blur
+                peer-checked:translate-x-0">
+    <div class="h-full flex flex-col">
+      <div class="flex items-center justify-between px-4 pt-4 pb-3">
+        <a href="contact.html"
+           class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10z"/>
+          </svg>
+        </a>
+        <label for="nav-toggle"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </label>
+      </div>
+
+      <nav class="px-4 py-2 space-y-4">
+        <a href="index.html"  class="block border-b border-white/20 py-4 flex justify-between"><span>Service</span>›</a>
+        <a href="about-us.html" class="block border-b border-white/20 py-4 flex justify-between"><span>About us</span>›</a>
+        <a href="voice.html"    class="block border-b border-white/20 py-4 flex justify-between"><span>Voice</span>›</a>
+        <a href="news.html"     class="block border-b border-white/20 py-4 flex justify-between"><span>News</span>›</a>
+        <a href="access.html"   class="block border-b border-white/20 py-4 flex justify-between"><span>Access</span>›</a>
+        <a href="contact.html"  class="block border-b border-white/20 py-4 flex justify-between"><span>Contact</span>›</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="mx-auto max-w-[1000px] px-4">
+    <!-- タイトル -->
+    <section class="mt-16 mb-10 text-center">
+      <h1 class="text-4xl font-bold mb-4">Access</h1>
+      <p class="text-lg text-gray-200">会社情報・所在地</p>
+    </section>
+
+    <!-- 本文カード（Contactと揃えた白カード） -->
+    <section class="bg-white rounded-xl shadow p-8 md:p-12 text-neutral-900 mb-20">
+      <!-- マップ -->
+      <div class="w-full overflow-hidden rounded-lg">
+        <iframe
+          class="w-full h-[360px] md:h-[420px]"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.280509564465!2d139.69989127523795!3d35.67009443058656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cbac9b52cff%3A0x560d87a8e2d1d3d2!2z5Y6f5a6_6aeF!5e0!3m2!1sja!2sjp!4v1762679284312!5m2!1sja!2sjp"
+          loading="lazy" allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- 会社情報 -->
+      <div class="mx-auto max-w-[700px] mt-8 md:mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-[140px,1fr] gap-x-10 gap-y-5">
+          <div class="text-sm text-neutral-500">会社名</div>
+          <div class="text-base md:text-lg">Near Café</div>
+
+          <div class="text-sm text-neutral-500">事務所所在地</div>
+          <div class="text-base md:text-lg">
+            〒150-0001 東京都渋谷区神宮前１丁目　原宿駅地下
+          </div>
+
+          <div class="text-sm text-neutral-500">TEL</div>
+          <div class="text-base md:text-lg">03-3333-3333</div>
+
+          <div class="text-sm text-neutral-500">FAX</div>
+          <div class="text-base md:text-lg">03-3333-3334</div>
+
+          <div class="text-sm text-neutral-500">MAIL</div>
+          <div class="text-base md:text-lg">
+            <a href="mailto:nearcafey@gmail.com" class="underline hover:no-underline">
+              nearcafe@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SERVICEに戻る -->
+    <div class="text-center mt-20 mb-20">
+      <a href="index.html"
+         class="inline-block bg-yellow-500 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-yellow-600 transition">
+        近くのカフェを探す（Serviceへ）
+      </a>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER（共通ブラウン） ================= -->
+  <footer class="mt-auto">
+    <div class="bg-[#3b2f2a]/90 backdrop-blur py-6">
+      <p class="text-center text-white text-[14px] tracking-wide">
+        copyrights 2025 Near Café All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

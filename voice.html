@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Near Café — Voice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary { cursor: pointer; }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col text-white pt-20 relative">
+
+  <!-- ===== 背景（Newsと同仕様：全画面＋黒レイヤー） ===== -->
+  <div class="fixed inset-0 -z-10">
+    <img src="img/coffee.png" class="w-full h-full object-cover" alt="">
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- ===== HEADER（共通ブラウン） ===== -->
+  <header class="fixed inset-x-0 top-0 z-[70] bg-[#3b2f2a]/90 backdrop-blur-sm border-b border-white/10">
+    <div class="mx-auto max-w-[1200px]">
+      <div class="h-20 flex items-center justify-between px-4">
+        <a href="index.html" class="h-12 px-2 flex items-center space-x-3">
+          <img src="img/logo.png" alt="Near Café ロゴ" class="h-full object-contain invert">
+          <span class="hidden sm:inline text-[26px] font-semibold text-white">Near Café</span>
+        </a>
+        <nav class="hidden md:block" aria-label="Global">
+          <ul class="flex items-center gap-7 text-[18px] font-bold">
+            <li><a href="index.html" class="hover:text-yellow-200">SERVICE</a></li>
+            <li><a href="about-us.html" class="hover:text-yellow-200">ABOUT US</a></li>
+            <li><a href="voice.html"   class="text-yellow-300 border-b-2 border-yellow-300">VOICE</a></li>
+            <li><a href="news.html"    class="hover:text-yellow-200">NEWS</a></li>
+            <li><a href="access.html"  class="hover:text-yellow-200">ACCESS</a></li>
+            <li><a href="contact.html" class="hover:text-yellow-200">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Drawer（共通。peerの並び順はこの位置でOK） ===== -->
+  <input id="nav-toggle" type="checkbox" class="peer hidden" />
+  <label for="nav-toggle"
+    class="fixed top-4 right-4 z-[100] w-12 h-12 rounded-full bg-white/20 text-white shadow-lg cursor-pointer flex items-center justify-center backdrop-blur">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    <span class="sr-only">Open menu</span>
+  </label>
+  <label for="nav-toggle" class="fixed inset-0 bg-black/40 hidden z-[80] peer-checked:block"></label>
+  <aside class="fixed inset-y-0 right-0 w-[320px] max-w-[88%] bg-[#3b2f2a] text-white translate-x-full
+                transition-transform duration-300 z-[90] shadow-2xl backdrop-blur peer-checked:translate-x-0">
+    <div class="h-full flex flex-col">
+      <div class="flex items-center justify-between px-4 pt-4 pb-3">
+        <a href="contact.html" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10z"/></svg>
+        </a>
+        <label for="nav-toggle" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </label>
+      </div>
+      <nav class="px-4 py-2 space-y-4">
+        <a href="index.html"  class="block border-b border-white/20 py-4 flex justify-between"><span>Service</span>›</a>
+        <a href="about-us.html" class="block border-b border-white/20 py-4 flex justify-between"><span>About us</span>›</a>
+        <a href="voice.html"    class="block border-b border-white/20 py-4 flex justify-between"><span>Voice</span>›</a>
+        <a href="news.html"     class="block border-b border-white/20 py-4 flex justify-between"><span>News</span>›</a>
+        <a href="access.html"   class="block border-b border-white/20 py-4 flex justify-between"><span>Access</span>›</a>
+        <a href="contact.html"  class="block border-b border-white/20 py-4 flex justify-between"><span>Contact</span>›</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN（お客様の声） ===== -->
+  <main class="flex-1">
+    <section class="mx-auto max-w-[1200px] py-[60px] px-[30px]">
+      <h1 class="text-4xl font-bold mb-20 text-center">Voice</h1>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+       <!-- Card 1 -->
+    <article class="bg-white text-neutral-900 rounded-2xl shadow p-0 overflow-hidden flex flex-col
+                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
+    <div class="px-6 pt-6 pb-2 text-[#222] font-bold tracking-wider text-center">Voice <span class="text-3xl">01</span></div>
+    <h3 class="px-6 text-center text-lg font-extrabold text-[#222]">フィールドセールス（30代）</h3>
+
+    <div class="mt-4 flex-1 space-y-4">
+        <div class="px-6">
+        <img src="img/voice01.png" alt="使用前" class="w-full rounded-md border bg-white h-[180px] object-contain">
+        </div>
+
+        <!-- 使用前 -->
+        <div class="px-6">
+        <span class="inline-block bg-[#3b2f2a]/10 text-[#222] font-semibold px-6 py-2 rounded-full text-sm">使用前</span>
+        <ul class="mt-3 text-sm text-neutral-700 leading-relaxed list-disc list-inside space-y-1">
+            <li>外出先で入れる店が見つからず、商談前後に毎回さまよっていました</li>
+            <li>電源難民でPCの残量を常に気にしていました</li>
+        </ul>
+        </div>
+
+        <!-- 使用後（※mt-4に統一／余計な入れ子なし） -->
+        <div class="px-6">
+        <span class="inline-block bg-[#3b2f2a]/10 text-[#222] font-semibold px-6 py-2 rounded-full text-sm">使用後</span>
+        <ul class="mt-3 text-sm text-neutral-700 leading-relaxed list-disc list-inside space-y-1">
+            <li>“席が空いてて電源あり”のカフェをすぐに見つけられて移動ロスがゼロになりました</li>
+            <li>商談直後に議事録を作成できるようになりました</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="h-4"></div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="bg-white text-neutral-900 rounded-2xl shadow p-0 overflow-hidden flex flex-col
+                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
+    <div class="px-6 pt-6 pb-2 text-[#222] font-bold tracking-wider text-center">Voice <span class="text-3xl">02</span></div>
+    <h3 class="px-6 text-center text-lg font-extrabold text-[#222]">スタートアップ（30代）</h3>
+
+    <div class="mt-4 flex-1 space-y-4">
+        <div class="px-6">
+        <img src="img/voice02.png" alt="使用前" class="w-full rounded-md border bg-white h-[180px] object-contain">
+        </div>
+
+        <div class="px-6">
+        <span class="inline-block bg-[#3b2f2a]/10 text-[#222] font-semibold px-6 py-2 rounded-full text-sm">使用前</span>
+        <ul class="mt-3 text-sm text-neutral-700 leading-relaxed list-disc list-inside space-y-1">
+            <li>外出日の作業計画が組みにくく、作業場所の確保に神経を使っていました</li>
+            <li>使えるWi-Fiを探して歩き回っていました</li>
+        </ul>
+        </div>
+
+        <!-- 使用後：mt-4／入れ子削除 -->
+        <div class="px-6">
+        <span class="inline-block bg-[#3b2f2a]/10 text-[#222] font-semibold px-6 py-2 rounded-full text-sm">使用後</span>
+        <ul class="mt-3 text-sm text-neutral-700 leading-relaxed list-disc list-inside space-y-1">
+            <li>“確実に座れる店”だけを選べるようになりました</li>
+            <li>Wi-Fiのある店を即検索でき、会議前に歩き回ることが無くなりました</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="h-4"></div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="bg-white text-neutral-900 rounded-2xl shadow p-0 overflow-hidden flex flex-col
+                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
+    <div class="px-6 pt-6 pb-2 text-[#222] font-bold tracking-wider text-center">Voice <span class="text-3xl">03</span></div>
+    <h3 class="px-6 text-center text-lg font-extrabold text-[#222]">国家資格受験生（20代・学生）</h3>
+
+    <div class="mt-4 flex-1 space-y-4">
+        <div class="px-6">
+        <img src="img/voice03.png" alt="使用前" class="w-full rounded-md border bg-white h-[180px] object-contain">
+        </div>
+
+        <div class="px-6">
+        <span class="inline-block bg-[#3b2f2a]/10 text-[#222] font-semibold px-6 py-2 rounded-full text-sm">使用前</span>
+        <ul class="mt-3 text-sm text-neutral-700 leading-relaxed list-disc list-inside space-y-1">
+            <li>満席で席待ち→集中が切れるのが常でした</li>
+            <li>席探しの時間が積み上がり、学習時間を圧迫していました</li>
+        </ul>
+        </div>
+
+        <!-- 使用後：mt-4に統一 -->
+        <div class="px-6">
+        <span class="inline-block bg-[#3b2f2a]/10 text-[#222] font-semibold px-6 py-2 rounded-full text-sm">使用後</span>
+        <ul class="mt-3 text-sm text-neutral-700 leading-relaxed list-disc list-inside space-y-1">
+            <li>席待ちがなく、勉強の立ち上がりが早いです</li>
+            <li>自習のルーティン化が進み、毎日同じ時間に着席できます</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="h-4"></div>
+    </article>
+          <div class="h-4"></div>
+        </article>
+      </div>
+    </section>
+     <!-- SERVICEに戻る -->
+    <div class="text-center mb-20">
+      <a href="index.html"
+         class="inline-block bg-yellow-500 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-yellow-600 transition">
+        近くのカフェを探す（Serviceへ）
+      </a>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="mt-auto">
+    <div class="bg-[#3b2f2a]/90 backdrop-blur py-6">
+      <p class="text-center text-white text-[14px] tracking-wide">
+        copyrights 2025 Near Café All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
+

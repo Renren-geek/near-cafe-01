@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Near Café — About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* details（必要なら使用） */
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary { cursor: pointer; }
+
+    /* ▼ ヒーロー：スライドショー */
+    .slideshow { position: relative; }
+    .slide-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: slideShow 20s infinite;
+    }
+    .slide-img:nth-child(1) { animation-delay: 0s; }
+    .slide-img:nth-child(2) { animation-delay: 5s; }
+    .slide-img:nth-child(3) { animation-delay: 10s; }
+    .slide-img:nth-child(4) { animation-delay: 15s; }
+
+    @keyframes slideShow {
+      0%   { opacity: 0; }
+      8%   { opacity: 1; }
+      25%  { opacity: 1; }
+      33%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col text-white pt-20 relative">
+
+  <!-- ===== 全ページ背景（News/Contactと統一） ===== -->
+  <div class="fixed inset-0 -z-10">
+    <img src="img/coffee.png" class="w-full h-full object-cover" alt="">
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- ================= HEADER（共通ブラウン仕様） ================= -->
+  <header class="fixed inset-x-0 top-0 z-[70] bg-[#3b2f2a]/90 backdrop-blur-sm border-b border-white/10">
+    <div class="mx-auto max-w-[1200px]">
+      <div class="h-20 flex items-center justify-between px-4">
+        <a href="index.html" class="h-12 px-2 flex items-center space-x-3">
+          <img src="img/logo.png" alt="Near Café ロゴ" class="h-full object-contain invert">
+          <span class="hidden sm:inline text-[26px] font-semibold text-white">Near Café</span>
+        </a>
+
+        <nav class="hidden md:block" aria-label="Global">
+          <ul class="flex items-center gap-7 text-[18px] font-bold">
+            <li><a href="index.html" class="hover:text-yellow-200">SERVICE</a></li>
+            <li><a href="about-us.html" class="text-yellow-300 border-b-2 border-yellow-300">ABOUT US</a></li>
+            <li><a href="voice.html"    class="hover:text-yellow-200">VOICE</a></li>
+            <li><a href="news.html"     class="hover:text-yellow-200">NEWS</a></li>
+            <li><a href="access.html"   class="hover:text-yellow-200">ACCESS</a></li>
+            <li><a href="contact.html"  class="hover:text-yellow-200">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============= Drawer（共通） ============= -->
+  <input id="nav-toggle" type="checkbox" class="peer hidden" />
+
+  <label for="nav-toggle"
+    class="fixed top-4 right-4 z-[100] w-12 h-12 rounded-full bg-white/20 text-white shadow-lg cursor-pointer flex items-center justify-center backdrop-blur">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+    <span class="sr-only">Open menu</span>
+  </label>
+
+  <label for="nav-toggle" class="fixed inset-0 bg-black/40 hidden z-[80] peer-checked:block"></label>
+
+  <aside class="fixed inset-y-0 right-0 w-[320px] max-w-[88%] bg-[#3b2f2a] text-white translate-x-full
+                transition-transform duration-300 z-[90] shadow-2xl backdrop-blur
+                peer-checked:translate-x-0">
+    <div class="h-full flex flex-col">
+      <div class="flex items-center justify-between px-4 pt-4 pb-3">
+        <a href="contact.html"
+           class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10z"/>
+          </svg>
+          <span class="sr-only">Go to Contact</span>
+        </a>
+
+        <label for="nav-toggle"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <span class="sr-only">Close menu</span>
+        </label>
+      </div>
+
+      <nav class="px-4 py-2 space-y-4">
+        <a href="index.html"  class="block border-b border-white/20 py-4 flex justify-between"><span>Service</span>›</a>
+        <a href="about-us.html" class="block border-b border-white/20 py-4 flex justify-between"><span>About us</span>›</a>
+        <a href="voice.html"    class="block border-b border-white/20 py-4 flex justify-between"><span>Voice</span>›</a>
+        <a href="news.html"     class="block border-b border-white/20 py-4 flex justify-between"><span>News</span>›</a>
+        <a href="access.html"   class="block border-b border-white/20 py-4 flex justify-between"><span>Access</span>›</a>
+        <a href="contact.html"  class="block border-b border-white/20 py-4 flex justify-between"><span>Contact</span>›</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="mx-auto max-w-[1100px] px-4">
+
+    <!-- ① Near Caféとは？（スライド背景） -->
+    <section class="relative w-full h-[420px] md:h-[520px] rounded-xl overflow-hidden shadow-lg mb-20 mt-10">
+      <div class="absolute inset-0">
+        <div class="slideshow w-full h-full absolute inset-0">
+          <img src="img/coffee02.png" class="slide-img" alt="">
+          <img src="img/coffee03.png" class="slide-img" alt="">
+          <img src="img/coffee04.png" class="slide-img" alt="">
+          <img src="img/coffee05.png" class="slide-img" alt="">
+        </div>
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+
+      <div class="relative z-10 flex flex-col items-center justify-center text-center h-full px-6">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3 text-white drop-shadow-lg">Near Café とは？</h1>
+        <p class="text-lg md:text-xl text-gray-200 leading-relaxed max-w-[760px] drop-shadow">
+          現在地から “すぐ入れるカフェ” が検索でき、<br>
+          混雑状況・電源・Wi-Fi の有無を瞬時に確認できるサービスです。
+        </p>
+      </div>
+    </section>
+
+    <!-- ② こんなお悩みありませんか？（横型カード：画像左 × テキスト右） -->
+    <section class="mb-20">
+      <h2 class="text-3xl font-bold text-center mb-10">こんなお悩みありませんか？</h2>
+
+      <div class="space-y-6">
+        <!-- Card 1 -->
+        <article class="bg-white text-neutral-900 rounded-xl shadow overflow-hidden">
+          <div class="flex flex-col md:flex-row items-center md:items-center">
+            <img src="img/img001.png" alt="" class="w-full md:w-[40%] h-[220px] md:h-[220px] object-cover">
+            <div class="p-6 md:p-8 md:flex-1">
+              <h3 class="font-bold text-xl mb-2">空いている店が見つからない</h3>
+              <p class="text-sm md:text-base leading-relaxed text-neutral-700">
+                打合せの前後で作業したいのに、近場に入れる店が見つからず、毎回歩き回る…
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white text-neutral-900 rounded-xl shadow overflow-hidden">
+          <div class="flex flex-col md:flex-row items-center md:items-center">
+            <img src="img/img002.png" alt="" class="w-full md:w-[40%] h-[220px] md:h-[220px] object-cover">
+            <div class="p-6 md:p-8 md:flex-1">
+              <h3 class="font-bold text-xl mb-2">電源・Wi-Fi 情報がわからない</h3>
+              <p class="text-sm md:text-base leading-relaxed text-neutral-700">
+                PC作業が必要なのに、電源があるか事前にわからず、賭けで入店することに…
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white text-neutral-900 rounded-xl shadow overflow-hidden">
+          <div class="flex flex-col md:flex-row items-center md:items-center">
+            <img src="img/img003.png" alt="" class="w-full md:w-[40%] h-[220px] md:h-[220px] object-cover">
+            <div class="p-6 md:p-8 md:flex-1">
+              <h3 class="font-bold text-xl mb-2">作業場所が安定しない</h3>
+              <p class="text-sm md:text-base leading-relaxed text-neutral-700">
+                作業場所の確保が日によってバラバラで、ルーティン化できず集中しにくい…
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ③ Near Café がそのお悩み解決します！（横型カード：画像右 × テキスト左） -->
+    <section class="mb-20">
+      <h2 class="text-3xl font-bold text-center mb-10">そのお悩み、Near Caféが解決します！</h2>
+
+      <div class="space-y-6">
+        <!-- Card 1 -->
+        <article class="bg-white text-neutral-900 rounded-xl shadow overflow-hidden">
+          <div class="flex flex-col md:flex-row-reverse items-center md:items-center">
+            <img src="img/img004.png" alt="" class="w-full md:w-[40%] h-[220px] md:h-[220px] object-cover">
+            <div class="p-6 md:p-8 md:flex-1">
+              <h3 class="font-bold text-xl mb-2">“すぐ入れる店”だけが分かる</h3>
+              <p class="text-sm md:text-base leading-relaxed text-neutral-700">
+                現在地から近くて空いているカフェだけを優先表示。無駄な移動がゼロに。
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white text-neutral-900 rounded-xl shadow overflow-hidden">
+          <div class="flex flex-col md:flex-row-reverse items-center md:items-center">
+            <img src="img/img005.png" alt="" class="w-full md:w-[40%] h-[220px] md:h-[220px] object-cover">
+            <div class="p-6 md:p-8 md:flex-1">
+              <h3 class="font-bold text-xl mb-2">電源・Wi-Fi がひと目で分かる</h3>
+              <p class="text-sm md:text-base leading-relaxed text-neutral-700">
+                PC作業の可否が事前に分かるため、会議前の“電源難民”が完全解消。
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white text-neutral-900 rounded-xl shadow overflow-hidden">
+          <div class="flex flex-col md:flex-row-reverse items-center md:items-center">
+            <img src="img/img006.png" alt="" class="w-full md:w-[40%] h-[220px] md:h-[220px] object-cover">
+            <div class="p-6 md:p-8 md:flex-1">
+              <h3 class="font-bold text-xl mb-2">作業のルーティン化が進む</h3>
+              <p class="text-sm md:text-base leading-relaxed text-neutral-700">
+                安定して使える店が増えるため、毎日の作業時間を確保しやすくなります。
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ④ あると嬉しい機能（縦3カード：そのまま） -->
+    <section class="mb-24">
+      <h2 class="text-3xl font-bold text-center mb-10">あると嬉しい機能を詰め込みました！！</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow text-neutral-900">
+          <img src="img/img007.png" alt="" class="w-full h-[180px] object-cover rounded">
+          <h3 class="font-bold text-lg mt-4 mb-2">現在地ベース検索</h3>
+          <p class="text-sm leading-relaxed text-neutral-700">
+            今いる場所から近いカフェを優先的に表示。
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow text-neutral-900">
+          <img src="img/img008.png" alt="" class="w-full h-[180px] object-cover rounded">
+          <h3 class="font-bold text-lg mt-4 mb-2">混雑状況の可視化</h3>
+          <p class="text-sm leading-relaxed text-neutral-700">
+            空席状況が色分け表示され、店選びが直感的。
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow text-neutral-900">
+          <img src="img/img009.png" alt="" class="w-full h-[180px] object-cover rounded">
+          <h3 class="font-bold text-lg mt-4 mb-2">電源・Wi-Fi 情報</h3>
+          <p class="text-sm leading-relaxed text-neutral-700">
+            PC作業に必須の情報を一覧で確認可能。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICEへ戻る -->
+    <div class="text-center mt-10 mb-20">
+      <a href="index.html"
+         class="inline-block bg-yellow-500 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-yellow-600 transition">
+        近くのカフェを探す（Serviceへ）
+      </a>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER（共通） ================= -->
+  <footer class="mt-auto">
+    <div class="bg-[#3b2f2a]/90 backdrop-blur py-6">
+      <p class="text-center text-white text-[14px] tracking-wide">
+        copyrights 2025 Near Café All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
